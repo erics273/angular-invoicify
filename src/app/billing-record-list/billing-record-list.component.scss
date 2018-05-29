@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+:host {
+  display: block;
+}
+
+main {
+  display: flex;
+  position: relative;
+
+  .parent {
+    flex: 1 0 0px;
+    overflow: hidden;
+  }
+
+  .child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    width: 300px;
+    transition: transform .3s;
+    transform: translateX(300px);
+    @include app-shadow();
+  }
+
+  .child.show {
+    transform: translateX(0);
+  }
+
+  .invoiced {
+    width: 100px;
+  }
+
+  .total {
+    width: 100px;
+  }
+
+  .rate {
+    width: 100px;
+  }
+
+  .amount {
+    width: 100px;
+  }
+
+  .client {
+    width: 200px;
+  }
+}

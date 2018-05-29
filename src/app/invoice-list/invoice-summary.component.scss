@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+:host {
+  display: inline-block;
+  transition: transform .2s;
+
+  .card {
+    transition: box-shadow 0.2s;
+    margin-right: 1em;
+  }
+}
+
+:host.selected {
+  transform: scale(1.05);
+
+  .card {
+    @include app-shadow (0px, 2px, 8px, 0, rgba(0, 0, 0, 0.4));
+  }
+}
+
+.report-stack {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.report-line-strong {
+  color: #282b31;
+}

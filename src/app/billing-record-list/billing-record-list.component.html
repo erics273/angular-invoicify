@@ -1,0 +1,45 @@
+<header class="main-title">
+  <h1 class="app-page-heading">Billing Records</h1>
+  <div *ngIf="clientCount" class="main-title-header-action" (click)="showNewRecordForm()" [ngClass]="{ hide: showChild || !records.length }">
+    <i class="material-icons icon-2x">add</i>
+  </div>
+</header>
+<main>
+  <div class="parent">
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!records.length && clientCount" [ngClass]="{ hide: showChild }">
+      <button class="app-btn app-btn-default" (click)="showNewRecordForm()">Create</button>
+      your first billing record
+    </h2>
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!clientCount" [ngClass]="{ hide: showChild }">
+      You need an <a routerLink="/client-list">active client</a> first
+    </h2>
+    <table class="app-table" *ngIf="records.length && clientCount">
+      <thead>
+        <tr>
+          <th class="text-center invoiced">Invoiced?</th>
+          <th class="text-center total">Total</th>
+          <th class="text-center rate">Rate</th>
+          <th class="text-center amount">Amount</th>
+          <th class="text-left client">Client</th>
+          <th class="text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+            <td class="text-center">{{ record.invoiced? 'Yes' : 'No' }}</td>
+            <td class="text-center">${{ record.total }}</td>
+            <td class="text-center">${{ record.rate }}</td>
+            <td class="text-center">{{ record.amount }}</td>
+            <td class="text-left">{{ record.client.name }}</td>
+            <td class="text-left">{{ record.description }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="clientCount" class="child" [ngClass]="{ show: showChild }">
+    <div class="form-icon" (click)="hideNewRecordForm()">
+      <i class="material-icons">close</i>
+    </div>
+    <app-billing-record-form (wantsClose)="hideNewRecordForm()"></app-billing-record-form>
+  </div>
+</main>

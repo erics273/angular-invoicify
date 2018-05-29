@@ -1,0 +1,35 @@
+<!-- Need to modalize this -->
+<header class="modal-header">
+  <i class="modal-close material-icons icon-2x" (click)="dismiss()">close</i>
+  <h1 class="app-headline">Associate Billing Records</h1>
+</header>
+<div class="modal-content">
+  <table class="app-table">
+    <thead>
+      <tr>
+        <th class="chosen text-center">Chosen?</th>
+        <th class="amount text-center">Amount</th>
+        <th class="rate text-center">Rate</th>
+        <th class="text-left">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of availableRecords">
+        <td class="text-center">
+          <input #cb type="checkbox" (change)="update(record, cb.checked)">
+        </td>
+        <td class="text-center">{{ record.amount }}</td>
+        <td class="text-center">${{ record.rate }}</td>
+        <td class="text-left">{{ record.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal-actions">
+  <button type="button" class="app-btn app-btn-primary" (click)="submit()">
+    Associate
+  </button>
+  <button type="button" class="app-btn" (click)="dismiss()">
+    Cancel
+  </button>
+</div>

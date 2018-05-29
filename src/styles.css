@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #F5F5F5;
+}
+
+a {
+  color: #03A9F4;
+}
+
+a, body, input, select {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  max-width: 100%;
+}
+
+header, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+}
+
+header a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-size: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  color: #03A9F4;
+}
+
+.icon-2x {
+  font-size: 48px;
+}
+
+.material-icons {
+  cursor: default;
+  user-select: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}

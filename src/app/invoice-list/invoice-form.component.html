@@ -1,0 +1,28 @@
+<h2 class="app-section-heading form-heading">Start an invoice</h2>
+<form class="child-form" (submit)="addNewClient()">
+  <div class="form-row">
+    <label for="client" class="app-control-label app-control-label-required">Client</label>
+    <select name="client" [(ngModel)]="clientId" required id="client" class="app-form-control" required>
+      <option value="">Select a client...</option>
+      <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="number" class="form-control-label form-control-label-required">Number</label>
+    <input [(ngModel)]="number" class="form-control" name="number" id="number" type="text" aria-required="true" required>
+  </div>
+  <div class="form-row">
+    <div class="app-headline">Billing Period</div>
+  </div>
+  <div class="form-row">
+    <label for="billingFrom" class="form-control-label form-control-label-required">From</label>
+    <input [(ngModel)]="billingFrom" class="form-control" type="date" id="billingFrom" name="billingFrom">
+  </div>
+  <div class="form-row">
+    <label for="billingTo" class="form-control-label form-control-label-required">To</label>
+    <input [(ngModel)]="billingTo" class="form-control" type="date" id="billingTo" name="billingTo">
+  </div>
+  <div class="form-row">
+    <button class="app-btn app-btn-primary">Create</button>
+  </div>
+</form>

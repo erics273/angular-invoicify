@@ -1,0 +1,31 @@
+<header class="main-title">
+  <h1 class="app-page-heading">Invoices</h1>
+  <div class="main-title-header-action" (click)="showNewInvoiceForm()" [ngClass]="{ hide: showChild || !invoices.length }">
+    <i class="material-icons icon-2x">add</i>
+  </div>
+</header>
+<main>
+  <div class="parent">
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!invoices.length && !activeClientCount && !openRecordCount">
+      You need an <a routerLink="/client-list">active client</a> first
+    </h2>
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!invoices.length && activeClientCount && !openRecordCount">
+      You need some
+      <a routerLink="/billing-record-list">billing records</a> before you can make an invoice
+    </h2>
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!invoices.length && openRecordCount" [ngClass]="{ hide: showChild }">
+      <button class="app-btn app-btn-default" (click)="showNewInvoiceForm()">Start</button>
+      your first invoice
+    </h2>
+    <app-invoice-carousel *ngIf="invoices.length" (click)="selectInvoice(null, $event)">
+      <app-invoice-summary [ngClass]="{ selected: invoice === selectedInvoice }" (click)="selectInvoice(invoice, $event)" *ngFor="let invoice of invoices" [invoice]="invoice"></app-invoice-summary>
+    </app-invoice-carousel>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="child" [ngClass]="{ show: showChild }">
+    <div class="form-icon" (click)="hideNewInvoiceForm()">
+      <i class="material-icons">close</i>
+    </div>
+    <app-invoice-form (wantsClose)="hideNewInvoiceForm()"></app-invoice-form>
+  </div>
+</main>

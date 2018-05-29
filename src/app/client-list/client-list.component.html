@@ -1,0 +1,36 @@
+<header class="main-title">
+  <h1 class="app-page-heading">Clients</h1>
+  <div class="main-title-header-action" (click)="showNewClientForm()" [ngClass]="{ hide: showChild || !clients.length }">
+    <i class="material-icons icon-2x">add</i>
+  </div>
+</header>
+<main>
+  <div class="parent">
+    <h2 class="app-section-heading empty-result-heading" *ngIf="!clients.length" [ngClass]="{ hide: showChild }">
+      <button class="app-btn app-btn-default" (click)="showNewClientForm()">Add</button>
+      your first client
+    </h2>
+    <table class="app-table" *ngIf="clients.length">
+      <thead>
+        <tr>
+          <th class="text-center is-active">Is Active?</th>
+          <th class="text-left">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td class="text-center">
+            <input type="checkbox" [checked]="client.active" (change)="updateStatus(client.id, !client.active)">
+          </td>
+          <td>{{ client.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="child" [ngClass]="{ show: showChild }">
+    <div class="form-icon" (click)="hideNewClientForm()">
+      <i class="material-icons">close</i>
+    </div>
+    <app-client-form (wantsClose)="hideNewClientForm()"></app-client-form>
+  </div>
+</main>

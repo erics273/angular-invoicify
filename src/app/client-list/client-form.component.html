@@ -1,0 +1,10 @@
+<h2 class="form-heading">Add a client</h2>
+<form class="child-form" (submit)="addNewClient()">
+  <div class="form-control-row">
+    <label for="name" class="form-control-label form-control-label-required">Name</label>
+    <input [(ngModel)]="name" class="form-control" name="name" id="name" type="text" aria-required="true" required>
+  </div>
+  <div class="form-row">
+    <button class="app-btn app-btn-primary">Create</button>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+.report-line {
+  display: flex;
+  align-items: center;
+}
+
+.report-line-strong {
+  color: #282b31;
+}
+
+.report-line-weak {
+  color: #686c73;
+}
+
+.report-line-number {
+  font-size: 2.8rem;
+  flex: 0 0 124px;
+  text-align: right;
+}
+
+.report-line-label {
+  padding-left: 0.25rem;
+  padding-bottom: 4px;
+  flex: 1 0 0px;
+  font-size: 1rem;
+}

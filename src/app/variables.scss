@@ -1,0 +1,16 @@
+$app-padding: 10px !default;
+$app-padding-half: $app-padding / 2 !default;
+$app-padding-3_4: floor(($app-padding * 0.75)) !default;
+$app-padding-plus-half: $app-padding + $app-padding-half !default;
+$app-padding-double: $app-padding * 2 !default;
+$app-padding-triple: $app-padding * 3 !default;
+
+@mixin app-shadow (
+  $h-shadow: 0px,
+  $v-shadow: 0px,
+  $blur: 5px,
+  $spread-radius: 0,
+  $color: rgba(0, 0, 0, 0.3)
+) {
+  box-shadow: $h-shadow $v-shadow $blur $spread-radius $color;
+}

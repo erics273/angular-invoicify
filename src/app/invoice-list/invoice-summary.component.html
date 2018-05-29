@@ -1,0 +1,14 @@
+<section class="card card-small">
+  <header class="card-title">{{ invoice.number }}</header>
+  <div class="card-content">
+    <div class="report-stack report-line-strong">
+      <div class="app-headline">{{ invoice.client.name }}</div>
+      <div>{{ invoice.billingFrom | date: 'MM/dd/yyyy' }}-{{ invoice.billingTo | date: 'MM/dd/yyyy' }}</div>
+      <div class="app-subsection-heading" style="margin-top: 1em">{{ invoice.total | currency:'USD':'symbol':'1.2-2' }}</div>
+    </div>
+  </div>
+  <div class="card-actions">
+    <button (click)="close()" *ngIf="invoice.total && !invoice.closed" class="app-btn app-btn-primary">Bill to Client</button>
+    <button (click)="pay()" *ngIf="invoice.closed && !invoice.paid" class="app-btn app-btn-primary">Paid by Client</button>
+  </div>
+</section>

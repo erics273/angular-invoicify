@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li *ngFor="let n of nav"
+        routerLinkActive="item-active"
+        [routerLinkActiveOptions]="{ exact: n.exact }">
+      <a [routerLink]="n.path">
+        {{ n.title }}
+      </a>
+    </li>
+  </ul>
+</nav>

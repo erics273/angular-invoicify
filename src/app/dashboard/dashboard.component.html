@@ -1,0 +1,56 @@
+<main>
+  <header class="main-title">
+    <h1 class="app-page-heading">At a Glance</h1>
+  </header>
+
+  <div class="card-container">
+    <section class="card card-small">
+      <header class="card-title">Invoices</header>
+      <div class="card-content">
+        <div class="report-line report-line-strong">
+          <span class="report-line-number">${{ unpaidAmount }}</span>
+          <span class="report-line-label">unpaid</span>
+        </div>
+        <div class="report-line report-line-weak">
+          <span class="report-line-number">${{ unbilledAmount }}</span>
+          <span class="report-line-label">not billed</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="app-btn app-btn-default" (click)="navigateTo('invoice-list')">View</button>
+      </div>
+    </section>
+    <section class="card card-small">
+      <header class="card-title">Billing Records</header>
+      <div class="card-content">
+        <div class="report-line report-line-strong">
+          <span class="report-line-number">${{ notInvoicedAmount }}</span>
+          <span class="report-line-label">not on an invoice</span>
+        </div>
+        <div class="report-line report-line-weak">
+          <span class="report-line-number">{{ recordClientCount }}</span>
+          <span class="report-line-label">client{{ recordClientCount === 1 ? '' : 's' }}</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="app-btn app-btn-default" (click)="navigateTo('billing-record-list')">View</button>
+      </div>
+    </section>
+    <section class="card card-small">
+      <header class="card-title">Clients</header>
+      <div class="card-content">
+        <div class="report-line report-line-strong">
+          <span class="report-line-number">{{ activeClientCount }}</span>
+          <span class="report-line-label">active</span>
+        </div>
+        <div class="report-line report-line-weak">
+          <span class="report-line-number">{{ inactiveClientCount }}</span>
+          <span class="report-line-label">inactive</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="app-btn app-btn-default" (click)="navigateTo('client-list')">View</button>
+      </div>
+    </section>
+  </div>
+</main>
